@@ -57,8 +57,10 @@ class PolyTreeNode
 
         while queue.length > 0
             temp = queue.shift
-            return temp if temp == target
+            return temp if temp.value == target
+            temp.children.each { |child| queue << child }
         end
+        return nil
     end
 
 end
